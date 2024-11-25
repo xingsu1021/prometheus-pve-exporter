@@ -232,10 +232,12 @@ class ClusterResourcesCollector:
         }
 
         for resource in self._pve.cluster.resources.get():
+            #print("resource---->",resource)
             restype = resource['type']
 
             if restype in info_lookup:
                 labels = info_lookup[restype]['labels']
+                #print("labels---->",labels)
                 label_values = [str(resource.get(key, '')) for key in labels]
                 info_lookup[restype]['gauge'].add_metric(label_values, 1)
 

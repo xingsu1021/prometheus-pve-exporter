@@ -46,6 +46,10 @@ def main():
                            action=BooleanOptionalAction, default=True,
                            help='Exposes PVE onboot status')
 
+    nodeflags.add_argument('--collector.agent', dest='collector_agent',
+                           action=BooleanOptionalAction, default=True,
+                           help='Exposes PVE agent info')
+    
     nodeflags.add_argument('--collector.replication', dest='collector_replication',
                            action=BooleanOptionalAction, default=True,
                            help='Exposes PVE replication info')
@@ -74,6 +78,7 @@ def main():
         cluster=params.collector_cluster,
         resources=params.collector_resources,
         config=params.collector_config,
+        agent=params.collector_agent,
         replication=params.collector_replication
     )
 

@@ -5,6 +5,11 @@ Prometheus Proxmox VE Exporter
 
 This is an exporter that exposes information gathered from Proxmox VE
 node for use by the Prometheus monitoring system.
+在原有的基础上新增pve_agent_network,安装agent的虚拟机可以获取IP信息
+
+grafana适配推荐模版
+https://grafana.com/grafana/dashboards/10347-proxmox-via-prometheus/
+https://grafana.com/grafana/dashboards/19484-proxmox-general/
 
 Installation
 ------------
