@@ -170,10 +170,10 @@ class NodeAgentCollector:
                         for entry in agent['result']
                         if not any(substring in entry['name'] for substring in ['lo', 'veth', 'docker', 'cni', 'flannel', 'br-','kube','cali', 'tunl','as0', 'Loopback','isatap','Tunne'])
                     ]
-
+                    #print("result---->",result)
                     interface_name = ', '.join([entry['name'] for entry in result])
                     #print('interface_name--->',interface_name)
-                    interface_ip = ', '.join([entry['ip-addresses'] for entry in result][0])
+                    interface_ip = ', '.join([entry['ip-addresses'][0] for entry in result])
                     #print('interface_ip--->',interface_ip)
                     label_values = [f"{vmtype}/{vmdata['vmid']}", node, vmtype, "1", interface_name, interface_ip]
                     #print("label_values=-->",label_values)
